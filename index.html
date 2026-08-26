@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sip Channé — Homepage Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Homepage design concept for Sip Channé.">
+<meta property="og:title" content="Sip Channé — Homepage Concept">
+<meta property="og:description" content="A design concept for the Sip Channé homepage.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1B1512;
+  --ink-soft:#5F544D;
+  --ink-mute:#8A7C73;
+  --paper:#FCFAF7;
+  --sand:#F2E9E0;
+  --sand-deep:#E6D7C9;
+  --blush:#ECD2C7;
+  --rose:#E3B3A0;
+  --rose-deep:#C98A73;
+  --wine:#7E3F47;
+  --line:#E4D9CF;
+  --max:1320px;
+  --gut:clamp(20px,5vw,64px);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--rose-deep)}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(46px,7.5vw,104px)}
+h2{font-size:clamp(34px,4.6vw,62px)}
+h3{font-size:clamp(22px,2.4vw,30px)}
+.lede{font-family:var(--serif);font-size:clamp(19px,2vw,25px);line-height:1.5;color:var(--ink-soft);font-weight:300}
+p{color:var(--ink-soft)}
+
+/* ---------- image slots (replace these) ---------- */
+.slot{position:relative;overflow:hidden;background:
+   radial-gradient(120% 90% at 25% 15%, #FBEDE4 0%, #F2DCCE 42%, #E4C4B0 74%, #D4A991 100%);}
+.slot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,center)}
+.slot::after{content:"Photography to come";position:absolute;left:14px;bottom:12px;
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:#8A6553;background:rgba(255,255,255,.72);padding:5px 9px;border-radius:2px;
+  backdrop-filter:blur(3px);pointer-events:none;max-width:calc(100% - 28px);z-index:2}
+body.show-specs .slot::after{content:attr(data-slot)}
+.slot.filled::after{display:none}
+.slot.dark{background:radial-gradient(120% 100% at 70% 20%, #6D4A44 0%, #4A2E2E 55%, #2A1A1A 100%)}
+.slot.dark::after{color:#EBD8CE;background:rgba(0,0,0,.45)}
+.slot.pale{background:linear-gradient(155deg,#FDF6F0 0%,#F3E4D8 55%,#E8D2C2 100%)}
+
+
+/* ---------- announcement ---------- */
+.announce{background:var(--ink);color:#F4E9E1;text-align:center;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:11px 16px;font-weight:300}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(252,250,247,.92);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;
+  max-width:var(--max);margin:0 auto;padding:14px var(--gut)}
+.logo{display:block;line-height:0}
+.logo img{height:52px;width:auto}
+@media(max-width:700px){.logo img{height:40px}}
+.menu{display:flex;gap:34px;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase}
+.menu a{padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .25s}
+.menu a:hover{border-color:var(--rose-deep)}
+.navcta{display:flex;align-items:center;gap:22px;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase}
+.navcta .join{background:var(--ink);color:var(--paper);padding:11px 22px;border-radius:1px;transition:background .25s}
+.navcta .join:hover{background:var(--wine)}
+.burger{display:none;font-size:20px;background:none;border:0;cursor:pointer;color:var(--ink)}
+@media(max-width:1080px){.menu,.navcta .cart{display:none}.burger{display:block}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:clamp(560px,92vh,940px);display:flex;align-items:flex-end}
+.hero .slot{position:absolute;inset:0}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(20,12,10,.34) 0%,rgba(20,12,10,.06) 30%,rgba(20,12,10,.30) 58%,rgba(20,12,10,.74) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;padding:0 var(--gut) clamp(48px,7vh,88px);
+  max-width:var(--max);margin:0 auto;color:#fff}
+.hero h1{color:#fff;max-width:13ch;text-shadow:0 2px 40px rgba(0,0,0,.28)}
+.hero h1 em{font-style:italic}
+.hero .eyebrow{color:#F6DFD2;margin-bottom:20px;text-shadow:0 1px 14px rgba(0,0,0,.55)}
+.hero-sub{color:rgba(255,255,255,.94);text-shadow:0 1px 18px rgba(0,0,0,.4);font-family:var(--serif);
+  font-size:clamp(17px,1.7vw,22px);max-width:44ch;margin-top:22px;line-height:1.5}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.btn{display:inline-block;padding:15px 34px;font-size:12px;letter-spacing:.17em;
+  text-transform:uppercase;border-radius:1px;transition:all .25s;border:1px solid transparent}
+.btn-solid{background:#fff;color:var(--ink)}
+.btn-solid:hover{background:var(--rose);color:var(--ink)}
+.btn-ghost{border-color:rgba(255,255,255,.62);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.14);border-color:#fff}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-dark:hover{background:var(--wine)}
+.btn-outline{border-color:var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- three routes ---------- */
+.routes{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line)}
+.route{background:var(--paper);padding:clamp(34px,4vw,58px) clamp(24px,2.6vw,44px);
+  display:flex;flex-direction:column;min-height:400px;transition:background .3s}
+.route:hover{background:#fff}
+.route .slot{aspect-ratio:4/3;margin-bottom:28px}
+.route h3{margin-bottom:12px}
+.route p{font-size:15px;flex:1}
+.route .go{margin-top:22px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--wine);display:inline-flex;align-items:center;gap:9px}
+.route:hover .go span{transform:translateX(5px)}
+.route .go span{transition:transform .25s;display:inline-block}
+@media(max-width:900px){.routes{grid-template-columns:1fr}.route{min-height:0}}
+
+/* ---------- section rhythm ---------- */
+section{padding:clamp(72px,10vw,140px) 0}
+.sec-head{max-width:62ch;margin-bottom:clamp(38px,5vw,68px)}
+.sec-head .eyebrow{display:block;margin-bottom:16px}
+.sec-head h2{margin-bottom:20px}
+
+/* ---------- founder ---------- */
+.founder{background:var(--sand)}
+.founder-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,5vw,80px);align-items:center}
+.founder .slot{aspect-ratio:4/5}
+.founder blockquote{font-family:var(--serif);font-size:clamp(24px,3vw,40px);
+  line-height:1.28;font-style:italic;color:var(--ink);margin:20px 0 26px}
+.founder .sig{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-mute)}
+@media(max-width:860px){.founder-grid{grid-template-columns:1fr}}
+
+/* ---------- wines ---------- */
+.wines{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px)}
+.wine{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.wine .slot{aspect-ratio:1/1}
+.wine-body{padding:clamp(26px,3vw,42px);flex:1;display:flex;flex-direction:column}
+.wine h3{margin-bottom:6px}
+.wine .appellation{font-size:11px;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--rose-deep);margin-bottom:18px}
+.wine .notes{font-size:15px;flex:1}
+.wine .specs{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+.chip{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);
+  border:1px solid var(--line);padding:6px 12px;border-radius:100px}
+.wine-foot{display:flex;align-items:center;justify-content:space-between;
+  padding-top:20px;border-top:1px solid var(--line);gap:16px;flex-wrap:wrap}
+.price{font-family:var(--serif);font-size:30px;color:var(--ink)}
+.price small{font-size:12px;font-family:var(--sans);letter-spacing:.1em;color:var(--ink-mute);
+  text-transform:uppercase;margin-left:6px}
+.stock{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.stock.out{color:var(--wine)}
+@media(max-width:820px){.wines{grid-template-columns:1fr}}
+
+/* ---------- society ---------- */
+.society{background:var(--ink);color:#F3E9E2;position:relative;overflow:hidden}
+.society::before{content:"";position:absolute;inset:0;opacity:.16;
+  background:radial-gradient(70% 60% at 82% 8%,var(--rose) 0%,transparent 62%)}
+.society .wrap{position:relative;z-index:1}
+.society h2,.society h3{color:#FBF3EE}
+.society p{color:rgba(243,233,226,.76)}
+.society .eyebrow{color:var(--rose)}
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,32px);margin-top:12px}
+.tier{border:1px solid rgba(243,233,226,.2);padding:clamp(28px,3.4vw,44px);
+  display:flex;flex-direction:column;transition:border-color .3s,background .3s}
+.tier:hover{border-color:rgba(227,179,160,.62);background:rgba(255,255,255,.03)}
+.tier.feature{border-color:var(--rose);background:rgba(227,179,160,.07)}
+.tier .badge{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);
+  background:var(--rose);padding:5px 12px;align-self:flex-start;margin-bottom:20px;border-radius:100px}
+.tier .tname{font-family:var(--serif);font-size:clamp(26px,2.7vw,34px);margin-bottom:6px}
+.tier .tsub{font-size:12px;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(243,233,226,.55);margin-bottom:26px}
+.tier .tprice{font-family:var(--serif);font-size:clamp(44px,5.4vw,64px);line-height:1;color:#FBF3EE}
+.tier .tprice sub{font-size:13px;font-family:var(--sans);letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(243,233,226,.55);vertical-align:baseline;margin-left:8px}
+.tier .per{font-size:13px;color:rgba(243,233,226,.6);margin:10px 0 26px}
+.tier ul{list-style:none;flex:1;margin-bottom:30px}
+.tier li{font-size:14.5px;padding:11px 0 11px 26px;position:relative;
+  border-bottom:1px solid rgba(243,233,226,.09);color:rgba(243,233,226,.86)}
+.tier li::before{content:"";position:absolute;left:0;top:19px;width:9px;height:1px;background:var(--rose)}
+.btn-rose{background:var(--rose);color:var(--ink);text-align:center}
+.btn-rose:hover{background:#fff}
+.btn-line{border-color:rgba(243,233,226,.45);color:#F3E9E2;text-align:center}
+.btn-line:hover{background:rgba(255,255,255,.1);border-color:var(--rose)}
+.terms{margin-top:30px;font-size:12.5px;color:rgba(243,233,226,.5);max-width:70ch}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+
+/* ---------- locator ---------- */
+.locator-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,72px);align-items:center}
+.locator .slot{aspect-ratio:16/11}
+.zip{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.zip input{flex:1;min-width:190px;padding:15px 18px;border:1px solid var(--line);
+  background:#fff;font-family:var(--sans);font-size:14px;font-weight:300;color:var(--ink)}
+.zip input:focus{outline:none;border-color:var(--rose-deep)}
+.venues{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.venue{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+  background:var(--sand);padding:9px 16px}
+@media(max-width:860px){.locator-grid{grid-template-columns:1fr}}
+
+/* ---------- press ---------- */
+.press{background:var(--sand);text-align:center}
+.press blockquote{font-family:var(--serif);font-size:clamp(26px,3.6vw,46px);line-height:1.3;
+  font-style:italic;max-width:20ch;margin:0 auto 24px;color:var(--ink)}
+.press .attrib{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute)}
+.press-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(28px,5vw,68px);
+  margin-top:clamp(44px,5vw,70px);padding-top:clamp(36px,4vw,54px);border-top:1px solid var(--sand-deep)}
+.press-logos span{font-family:var(--serif);font-size:clamp(17px,1.9vw,23px);
+  color:var(--ink-mute);letter-spacing:.04em}
+
+/* ---------- giving ---------- */
+.giving-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,72px);align-items:center}
+.giving .slot{aspect-ratio:3/2}
+.orgs{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.orgs span{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);border:1px solid var(--line);padding:8px 14px}
+@media(max-width:860px){.giving-grid{grid-template-columns:1fr}}
+
+/* ---------- signup ---------- */
+.signup{background:var(--paper);text-align:center;border-top:1px solid var(--line)}
+.signup form{display:flex;gap:10px;max-width:520px;margin:30px auto 0;flex-wrap:wrap}
+.signup input{flex:1;min-width:220px;padding:15px 18px;border:1px solid var(--line);
+  background:#fff;font-family:var(--sans);font-size:14px;font-weight:300}
+.signup input:focus{outline:none;border-color:var(--rose-deep)}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:rgba(243,233,226,.72);padding:clamp(56px,7vw,90px) 0 34px}
+.fgrid{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:clamp(28px,4vw,56px);
+  padding-bottom:44px;border-bottom:1px solid rgba(243,233,226,.13)}
+footer .logo{margin-bottom:20px}
+footer .logo img{height:60px}
+footer h4{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:18px;font-weight:400}
+footer ul{list-style:none}
+footer li{margin-bottom:11px;font-size:14px}
+footer a:hover{color:var(--rose)}
+.fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  padding-top:26px;font-size:11.5px;color:rgba(243,233,226,.42)}
+.fbot a{margin-left:20px}
+@media(max-width:860px){.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.fgrid{grid-template-columns:1fr}}
+
+/* ---------- design notes ---------- */
+.note{position:relative;background:#FFF9E8;border-left:2px solid #C9A227;
+  padding:14px 18px;margin:20px 0;font-size:13px;line-height:1.6;color:#5A4A1E;
+  font-family:var(--sans)}
+.note b{color:#3F340F;font-weight:500}
+.society .note{background:rgba(201,162,39,.14);color:#F0E4C0;border-left-color:#C9A227}
+.society .note b{color:#FFF3D0}
+body.hide-notes .note{display:none}
+.toggle{position:fixed;right:18px;bottom:18px;z-index:90;display:flex;gap:8px}
+.toggle button{font-family:var(--sans);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  background:var(--ink);color:#F3E9E2;border:1px solid rgba(243,233,226,.24);
+  padding:11px 16px;cursor:pointer;border-radius:2px;transition:background .2s}
+.toggle button:hover{background:var(--wine)}
+.toggle button.off{background:#fff;color:var(--ink);border-color:var(--line)}
+@media print{.toggle{display:none}}
+@media(max-width:700px){
+  .hero-inner{padding-bottom:clamp(96px,17vh,150px)}
+  .hero-btns{gap:10px}
+  .hero-btns .btn{flex:1 1 100%;text-align:center}
+  .toggle{right:10px;bottom:10px;flex-direction:column;gap:6px;align-items:flex-end}
+  .toggle button{font-size:9.5px;padding:8px 11px;letter-spacing:.1em;opacity:.92}
+  .announce{font-size:10px;letter-spacing:.14em;padding:9px 14px}
+}
+</style>
+</head>
+<body class="hide-notes">
+
+<div class="announce">Complimentary shipping on every Sip Society order</div>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="#"><img src="images/logo-dark.png" alt="Sip Channé"></a>
+    <div class="menu">
+      <a href="#wines">The Wines</a>
+      <a href="#story">Our Story</a>
+      <a href="#society">Sip Society</a>
+      <a href="#find">Where to Buy</a>
+      <a href="#press">Press</a>
+    </div>
+    <div class="navcta">
+      <a class="cart" href="#">Cart (0)</a>
+      <a class="join" href="#society">Join</a>
+      <button class="burger" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="slot" data-slot="HERO — 2400×1400 · bottle in Provence light, landscape, subject left-of-center, generous sky for the headline"><img src="images/hero.jpg" alt="Channé Rosé in Provence light" onload="this.parentNode.classList.add('filled')" onerror="this.remove()"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Côtes de Provence</span>
+    <h1>Rosé, the way <em>Provence</em> intended</h1>
+    <p class="hero-sub">A dry Côtes de Provence rosé of Grenache, Cinsault and Mourvèdre — chosen after a hundred tastings, and made a few miles from Saint-Tropez.</p>
+    <div class="hero-btns">
+      <a class="btn btn-solid" href="#wines">Shop the wines</a>
+      <a class="btn btn-ghost" href="#society">Join the Sip Society</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== THREE ROUTES ========== -->
+<div class="routes">
+  <a class="route" href="#wines">
+    <div class="slot pale" data-slot="1200×900 · both bottles, styled still life"><img src="images/routes-wines.jpg" alt="Channé Rosé and Blanc" onload="this.parentNode.classList.add('filled')" onerror="this.remove()"></div>
+    <h3>The Wines</h3>
+    <p>Two wines, one philosophy. A pale copper rosé and a dry white, both from old vines on clay-limestone soil.</p>
+    <span class="go">Explore <span>→</span></span>
+  </a>
+  <a class="route" href="#story">
+    <div class="slot" data-slot="1200×900 · Provence vineyard or the domaine"><img src="images/routes-story.jpg" alt="The domaine in Provence" onload="this.parentNode.classList.add('filled')" onerror="this.remove()"></div>
+    <h3>Our Story</h3>
+    <p>A sports broadcaster went to Provence, met more than a hundred winemakers, and came home with a wine of her own.</p>
+    <span class="go">Read it <span>→</span></span>
+  </a>
+  <a class="route" href="#society">
+    <div class="slot dark" data-slot="1200×900 · table setting, glasses poured, evening light"><img src="images/routes-society.jpg" alt="A table set for the Sip Society" onload="this.parentNode.classList.add('filled')" onerror="this.remove()"></div>
+    <h3>Sip Society</h3>
+    <p>Wine delivered monthly, 25% off everything, free shipping, and an invitation to the table.</p>
+    <span class="go">See the tiers <span>→</span></span>
+  </a>
+</div>
+
+<!-- ========== FOUNDER ========== -->
+<section class="founder" id="story">
+  <div class="wrap founder-grid">
+    <div class="slot" data-slot="FOUNDER — 1200×1500 portrait · Kavita, editorial, holding or beside the bottle"><img src="images/founder.jpg" alt="Kavita Channe, founder" onload="this.parentNode.classList.add('filled')" onerror="this.remove()"></div>
+    <div>
+      <span class="eyebrow">The Founder</span>
+      <blockquote>“I traded in my mic for a quest to craft the best rosé I could.”</blockquote>
+      <p>After a decade on the sidelines for the Panthers and the Jaguars, Kavita Channe spent two years in Provence tasting with more than a hundred winemakers before choosing one — a family domaine twenty-five miles from Saint-Tropez, where Thomas has made wine his whole life.</p>
+      <p style="margin-top:16px">Everything in the bottle follows from that decision.</p>
+      <p class="sig" style="margin-top:26px">Kavita Channe — Founder</p>
+      <a class="btn btn-outline" style="margin-top:26px" href="#">Read the full story</a>
+      <div class="note"><b>Design note.</b> The founder sits above the fold on the real homepage, not on a separate page. In a category where most brands are owned by holding companies, an operating founder is the differentiator — and the story is built to lead <i>to</i> the wine rather than sit beside it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WINES ========== -->
+<section id="wines">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The Wines</span>
+      <h2>Two wines, made once a year</h2>
+      <p class="lede">Old vines, clay-limestone soil, sustainable farming, and a blend chosen for the table rather than the scoresheet.</p>
+    </div>
+    <div class="wines">
+      <article class="wine">
+        <div class="slot pale" data-slot="1400×1400 · Rosé bottle, square crop, soft shadow"><img src="images/bottle-rose.jpg" alt="Channé Rosé bottle" onload="this.parentNode.classList.add('filled')" onerror="this.remove()"></div>
+        <div class="wine-body">
+          <h3>Channé Rosé</h3>
+          <div class="appellation">Côtes de Provence</div>
+          <p class="notes">Apricot, cherry and passion fruit over white flowers. Pale copper in the glass, dry, mineral, with the low acidity that makes it as easy alongside food as it is on its own.</p>
+          <div class="specs">
+            <span class="chip">Grenache · Cinsault · Mourvèdre</span>
+            <span class="chip">Dry</span>
+            <span class="chip">No added sugar</span>
+            <span class="chip">Silver · Concours Général Agricole</span>
+          </div>
+          <div class="wine-foot">
+            <div><span class="price">$30<small>750ml</small></span></div>
+            <a class="btn btn-dark" href="#">Add to cart</a>
+          </div>
+        </div>
+      </article>
+      <article class="wine">
+        <div class="slot pale" data-slot="1400×1400 · Blanc bottle, square crop, matching light + shadow"><img src="images/bottle-blanc.jpg" alt="Channé Blanc bottle" onload="this.parentNode.classList.add('filled')" onerror="this.remove()"></div>
+        <div class="wine-body">
+          <h3>Channé Blanc</h3>
+          <div class="appellation">Côtes de Provence</div>
+          <p class="notes">Quince, lemon and apricot with acacia blossom. Dry and luminous, without tannin — a white built for the same table as the rosé, and priced to match.</p>
+          <div class="specs">
+            <span class="chip">Sémillon · Ugni Blanc</span>
+            <span class="chip">Dry</span>
+            <span class="chip">No added sugar</span>
+            <span class="chip">Gold · Mondial du Rosé</span>
+          </div>
+          <div class="wine-foot">
+            <div><span class="price">$30<small>750ml</small></span><div class="stock out" style="margin-top:6px">Between vintages</div></div>
+            <a class="btn btn-outline" href="#">Notify me</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="note"><b>Design note.</b> Price and availability live on the page. When a wine is between vintages the page captures an email instead of ending the conversation — on a two-wine range that is half your traffic. <b>Check before launch:</b> a “no sugar” claim needs an accompanying statement of average analysis under TTB rules, so confirm the label and page copy with whoever handles your COLA submissions.</div>
+  </div>
+</section>
+
+<!-- ========== SIP SOCIETY ========== -->
+<section class="society" id="society">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Sip Society</span>
+      <h2>Where wellness meets wine</h2>
+      <p class="lede" style="color:rgba(243,233,226,.78)">Wine delivered every month, 25% off everything you order, shipping always included, and a standing invitation to the table.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier">
+        <div class="tname">Three Bottles</div>
+        <div class="tsub">Monthly</div>
+        <div class="tprice">$67.50<sub>per month</sub></div>
+        <div class="per">$22.50 a bottle — 25% below retail</div>
+        <ul>
+          <li>Three bottles each month — Rosé, Blanc or mixed</li>
+          <li>25% off every additional order</li>
+          <li>Complimentary shipping, always</li>
+          <li>Pairings and recipes from Kavita</li>
+          <li>Member-only releases and gifts</li>
+        </ul>
+        <a class="btn btn-line" href="#">Join at three bottles</a>
+      </div>
+      <div class="tier feature">
+        <span class="badge">Most popular</span>
+        <div class="tname">Six Bottles</div>
+        <div class="tsub">Monthly</div>
+        <div class="tprice">$135<sub>per month</sub></div>
+        <div class="per">$22.50 a bottle — 25% below retail</div>
+        <ul>
+          <li>Six bottles each month — Rosé, Blanc or mixed</li>
+          <li>25% off every additional order</li>
+          <li>Complimentary shipping, always</li>
+          <li>Pairings and recipes from Kavita</li>
+          <li>Member-only releases and gifts</li>
+          <li>First access to large formats and events</li>
+        </ul>
+        <a class="btn btn-rose" href="#">Join at six bottles</a>
+      </div>
+    </div>
+    <p class="terms">Members receive twelve releases. Skip, pause or change your tier at any time from your account. We currently ship to <a href="#find" style="border-bottom:1px solid rgba(227,179,160,.5)">these states</a>.</p>
+    <div class="note"><b>Design note — the most important change on the site.</b> Both tiers, both prices, the per-bottle math, the benefits, the twelve-release commitment and the shipping states all appear as ordinary text on your own page. Two things follow. A visitor still deciding can actually decide, instead of having to start a signup to find out what it costs. And search engines can read it — someone searching “Provence rosé wine club monthly” is a person ready to buy, and this page should be able to compete for them. Today none of these words exist on sipchanne.com.</div>
+  </div>
+</section>
+
+<!-- ========== WHERE TO BUY ========== -->
+<section class="locator" id="find">
+  <div class="wrap locator-grid">
+    <div>
+      <span class="eyebrow">Where to Buy</span>
+      <h2 style="margin:16px 0 18px">Near you, tonight</h2>
+      <p>We ship direct to much of the country. Everywhere else, Sip Channé is already on the list at some of Florida’s best rooms — and at a shop near you.</p>
+      <div class="zip">
+        <input type="text" placeholder="Enter your ZIP code" aria-label="ZIP code">
+        <a class="btn btn-dark" href="#">Find it</a>
+      </div>
+      <div class="venues">
+        <span class="venue">The Boca Raton</span>
+        <span class="venue">The Biltmore</span>
+        <span class="venue">PGA National Resort</span>
+        <span class="venue">+ 40 more</span>
+      </div>
+      <div class="note"><b>Design note.</b> This is the page that catches everyone you can’t ship to. Detect the visitor’s state on arrival: if you can ship, they see the shop and the club; if you can’t, they see this. Nobody reaches a dead end because of where they live.</div>
+    </div>
+    <div class="slot" data-slot="1400×960 · restaurant or poolside setting, bottle on table"><img src="images/locator.jpg" alt="Sip Channé served at a partner venue" onload="this.parentNode.classList.add('filled')" onerror="this.remove()"></div>
+  </div>
+</section>
+
+<!-- ========== PRESS ========== -->
+<section class="press" id="press">
+  <div class="wrap">
+    <blockquote>“Meet the woman who wants to change the way you sip rosé.”</blockquote>
+    <div class="attrib">Forbes</div>
+    <div class="press-logos">
+      <span>Forbes</span><span>Napa Valley Register</span><span>FOX News Radio</span>
+      <span>NBC 6</span><span>Boca Raton Observer</span>
+    </div>
+    <div class="note" style="text-align:left;max-width:70ch;margin:44px auto 0"><b>Design note.</b> Five outlets, chosen. The current press page lists twenty-six with Forbes at the same weight as everything else — curation is the cheapest way to raise perceived quality on a website.</div>
+  </div>
+</section>
+
+<!-- ========== GIVING ========== -->
+<section class="giving">
+  <div class="wrap giving-grid">
+    <div class="slot" data-slot="1400×930 · event or community photograph"><img src="images/giving.jpg" alt="Sip Channé community event" onload="this.parentNode.classList.add('filled')" onerror="this.remove()"></div>
+    <div>
+      <span class="eyebrow">Giving is Living</span>
+      <h2 style="margin:16px 0 18px">A glass raised is a hand extended</h2>
+      <p>Sip Channé supports the organizations that hold South Florida together — including 211 Broward, where Kavita has served on the board and hosted the Non-Profit Awards Gala for seven years.</p>
+      <div class="orgs">
+        <span>211 Broward</span><span>Miami Diaper Bank</span>
+        <span>Veterinarians International</span><span>Cystic Fibrosis Foundation</span>
+      </div>
+      <div class="note"><b>Design note.</b> Naming the partners turns a slogan into a commitment. Seven years emceeing a gala is not a marketing exercise, and saying so plainly is more powerful than the phrase on its own.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SIGNUP ========== -->
+<section class="signup">
+  <div class="wrap">
+    <span class="eyebrow">Stay in touch</span>
+    <h2 style="margin:16px 0 14px">The occasional letter</h2>
+    <p style="max-width:52ch;margin:0 auto">New vintages, private events and the odd recipe. Nothing more than twice a month.</p>
+    <form onsubmit="return false">
+      <input type="email" placeholder="Your email address" aria-label="Email address">
+      <button class="btn btn-dark" type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo"><img src="images/logo-light.png" alt="Sip Channé"></div>
+        <p style="font-size:14px;max-width:34ch">Côtes de Provence rosé and blanc, from a family domaine outside Saint-Tropez.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul><li><a href="#">Channé Rosé</a></li><li><a href="#">Channé Blanc</a></li>
+        <li><a href="#">Large formats</a></li><li><a href="#">Gift a membership</a></li></ul>
+      </div>
+      <div>
+        <h4>Sip Channé</h4>
+        <ul><li><a href="#">Our story</a></li><li><a href="#">Sip Society</a></li>
+        <li><a href="#">Where to buy</a></li><li><a href="#">Press</a></li><li><a href="#">Giving is Living</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="#">Customer care</a></li><li><a href="#">Trade &amp; wholesale</a></li>
+        <li><a href="#">Press inquiries</a></li><li><a href="#">Instagram</a></li></ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <div>© 2026 Sip Channé. Please enjoy responsibly. You must be 21 or older to purchase.</div>
+      <div><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Shipping &amp; Returns</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toggle">
+  <button id="tNotes" class="off">Design notes</button>
+  <button id="tSlots" class="off">Image specs</button>
+</div>
+
+<script>
+(function(){
+  var n=document.getElementById('tNotes'), s=document.getElementById('tSlots'), b=document.body;
+  n.onclick=function(){ var on=!b.classList.toggle('hide-notes'); n.classList.toggle('off',!on); };
+  s.onclick=function(){ var on=b.classList.toggle('show-specs'); s.classList.toggle('off',!on); };
+})();
+</script>
+</body>
+</html>
