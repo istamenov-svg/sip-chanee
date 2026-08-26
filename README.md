@@ -23,6 +23,10 @@ git push -u origin main
 
 ## Adding the photography
 
+See **PHOTO-BRIEF.md** for a ready-to-paste generation prompt for each image,
+plus notes on the two that need real photography rather than generated stand-ins.
+
+
 Drop the files into `images/` using exactly these names. The page picks them up
 automatically — no code changes needed. Until a file exists, that block shows a
 tinted placeholder, so the page always looks intentional.
